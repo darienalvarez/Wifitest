@@ -1,6 +1,7 @@
 package com.traveltab.wifitest.store
 
 import android.content.Context
+import android.net.wifi.WifiConfiguration
 import android.net.wifi.WifiManager
 import com.ptmr3.fluxx.FluxxAction
 import com.traveltab.wifitest.action.ActionDataKeys
@@ -11,6 +12,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.ArgumentCaptor
+import org.junit.Assert
+
 
 /**
  * @author Darien
@@ -42,6 +46,10 @@ class WifiStoreTest {
 
         wifiStore.connectWifi(action)
 
-        Mockito.verify(wifiManager).addNetwork(Mockito.any())
+        val argument = ArgumentCaptor.forClass<WifiConfiguration, WifiConfiguration>(WifiConfiguration::class.java)
+        Mockito.verify(wifiManager).addNetwork(argument.capture())
+
+        Assert.assertEquals("ssid", argument.value.SSID)
+        Assert.assertEquals("pass", argument.value.preSharedKey)
     }
 }
