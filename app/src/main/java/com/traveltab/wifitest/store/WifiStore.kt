@@ -7,7 +7,9 @@ import com.ptmr3.fluxx.FluxxAction
 import com.ptmr3.fluxx.FluxxStore
 import com.ptmr3.fluxx.annotation.Action
 import com.traveltab.wifitest.action.ActionDataKeys.AUTH_MODEL_DATA_KEY
+import com.traveltab.wifitest.action.ActionDataKeys.CONNECTING_WIFI_DATA_KEY
 import com.traveltab.wifitest.action.ActionDataKeys.ENABLE_WIFI_DATA_KEY
+import com.traveltab.wifitest.action.ActionDataKeys.ENABLING_WIFI_DATA_KEY
 import com.traveltab.wifitest.action.WifiActions.Companion.ACTION_CONNECT_WIFI
 import com.traveltab.wifitest.action.WifiActions.Companion.ACTION_ENABLE_WIFI
 import com.traveltab.wifitest.model.WifiAuthModel
@@ -25,6 +27,9 @@ class WifiStore(context: Context) : FluxxStore() {
 
         if (wifiManager.isWifiEnabled != enableWifi) {
             wifiManager.isWifiEnabled = enableWifi
+            publishReaction(action.type, ENABLING_WIFI_DATA_KEY, true)
+        } else {
+            publishReaction(action.type, ENABLING_WIFI_DATA_KEY, true)
         }
     }
 
@@ -41,5 +46,7 @@ class WifiStore(context: Context) : FluxxStore() {
         wifiManager.disconnect()
         wifiManager.enableNetwork(netId, true)
         wifiManager.reconnect()
+
+        publishReaction(action.type, CONNECTING_WIFI_DATA_KEY, true)
     }
 }
