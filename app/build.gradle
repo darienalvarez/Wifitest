@@ -39,7 +39,7 @@ dependencies {
     kapt "com.github.ptmr3:fluxxap:$fluxx_ap_version"
 
     testImplementation "junit:junit:$junit_version"
-    testImplementation "org.mockito:mockito-core:2.21.0"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
 
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "com.android.support.test:runner:$test_runner_version"
