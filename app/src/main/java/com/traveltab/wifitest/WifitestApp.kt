@@ -12,7 +12,7 @@ class WifitestApp: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val module = Module(this)
+        val module = Module(applicationContext)
         startKoin(this, module.modules)
     }
 }

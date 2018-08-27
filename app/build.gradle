@@ -37,9 +37,9 @@ dependencies {
     implementation "org.koin:koin-android:$koin_android_version"
 
     // fluxx
-    implementation 'com.github.ptmr3:fluxx:1.0.7'
-    annotationProcessor 'com.github.ptmr3:fluxxap:1.0.5'
-    kapt 'com.github.ptmr3:fluxxap:1.0.5'
+    implementation "com.github.ptmr3:fluxx:$fluxx_version"
+    annotationProcessor "com.github.ptmr3:fluxxap:$fluxx_ap_version"
+    kapt "com.github.ptmr3:fluxxap:$fluxx_ap_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "com.android.support.test:runner:$test_runner_version"
