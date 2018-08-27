@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), FluxxReactionSubscriber {
 
     @Reaction(WifiActions.ACTION_ENABLE_WIFI)
     fun enablingWifiReaction(reaction: FluxxReaction) {
-        if (reaction.get<Boolean>(ActionDataKeys.ENABLING_WIFI_DATA_KEY)) {
+        if (reaction[ActionDataKeys.ENABLING_WIFI_DATA_KEY]) {
             Toast.makeText(this, "Enabling wifi", Toast.LENGTH_LONG).show()
         }
 
