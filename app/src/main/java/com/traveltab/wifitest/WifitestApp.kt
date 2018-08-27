@@ -1,6 +1,7 @@
 package com.traveltab.wifitest
 
 import android.app.Application
+import com.traveltab.wifitest.di.Module
 import org.koin.android.ext.android.startKoin
 
 /**
@@ -11,6 +12,7 @@ class WifitestApp: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // startKoin()
+        val module = Module(this)
+        startKoin(this, module.modules)
     }
 }
