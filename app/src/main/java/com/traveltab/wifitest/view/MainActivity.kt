@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity(), FluxxReactionSubscriber {
     }
 
     companion object {
-        const val SSID = """"NETGEAR45""""
-        const val PASS = """"rockycello888""""
+        const val SSID = """"TravelTab""""
+        const val PASS = """"123456789""""
     }
 }
